@@ -113,34 +113,34 @@ export const AdminPage: React.FC = () => {
       {success && <Alert type="success" onDismiss={() => setSuccess(null)}>{success}</Alert>}
 
       {/* Tabs */}
-      <div className="flex border-b border-slate-200 text-sm">
+      <div className="flex overflow-x-auto border-b border-slate-200 text-xs sm:text-sm no-scrollbar scroll-smooth">
         <button
           onClick={() => setActiveTab('users')}
-          className={`flex items-center gap-2 px-5 py-2.5 font-bold border-b-2 transition-colors ${
+          className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 font-bold border-b-2 transition-colors shrink-0 whitespace-nowrap ${
             activeTab === 'users' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
-          <Users size={16} />
+          <Users size={16} className="shrink-0" />
           <span>User & Role Governance ({users.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTab('audit')}
-          className={`flex items-center gap-2 px-5 py-2.5 font-bold border-b-2 transition-colors ${
+          className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 font-bold border-b-2 transition-colors shrink-0 whitespace-nowrap ${
             activeTab === 'audit' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
-          <History size={16} />
+          <History size={16} className="shrink-0" />
           <span>System Audit Log ({logs.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTab('sla')}
-          className={`flex items-center gap-2 px-5 py-2.5 font-bold border-b-2 transition-colors ${
+          className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 font-bold border-b-2 transition-colors shrink-0 whitespace-nowrap ${
             activeTab === 'sla' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
-          <Sliders size={16} />
+          <Sliders size={16} className="shrink-0" />
           <span>SLA Rules Configuration</span>
         </button>
       </div>
