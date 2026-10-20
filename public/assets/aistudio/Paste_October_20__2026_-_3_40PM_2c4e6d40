@@ -1,0 +1,1261 @@
+PROJECT: SMART COLLEGE COMPLAINT SYSTEM
+PLATFORM: GOOGLE AI STUDIO
+MODE: FULL-STACK APPLICATION DEVELOPMENT
+
+========================================================
+1. YOUR ROLE AND MAIN OBJECTIVE
+========================================================
+
+Act as a senior full-stack developer, software architect, UI/UX
+designer, database engineer, cybersecurity engineer, QA tester,
+and deployment engineer.
+
+Build a complete, real-world, production-ready web application
+called:
+
+SMART COLLEGE COMPLAINT SYSTEM
+
+Tagline:
+"Your Voice. Our Responsibility."
+
+I am a beginner CSE student. Build the application using clean,
+maintainable, beginner-friendly code.
+
+IMPORTANT: I DO NOT WANT ONLY A UI DESIGN OR STATIC PROTOTYPE.
+
+I want a complete, working, full-stack application with:
+- Functional frontend.
+- Real authentication.
+- Real database.
+- Real backend operations.
+- Secure role-based access.
+- Persistent complaint records.
+- Real file uploads.
+- Functional dashboards.
+- Working notifications and messaging.
+- Complaint tracking.
+- Management features.
+- Complete testing.
+- Error detection and fixing.
+- Production deployment preparation.
+
+Do not stop after generating the homepage.
+
+Do not create buttons that only look functional.
+
+Do not use fake data as a substitute for real database operations.
+
+Do not mark a feature complete until it has been implemented and
+tested to the extent possible in the available environment.
+
+Your main responsibility is to BUILD, TEST, DEBUG, FIX, AND VERIFY
+the application.
+
+========================================================
+2. MANDATORY FULL-FUNCTIONALITY REQUIREMENT
+========================================================
+
+THIS REQUIREMENT IS MORE IMPORTANT THAN VISUAL DESIGN.
+
+Build a working application, not merely a frontend demonstration.
+
+Every important feature must connect to its actual implementation.
+
+For example:
+
+- Registration must create a real user account.
+- Login must authenticate a real user.
+- Complaints must be saved in a persistent database.
+- Complaint references must be unique.
+- Dashboard statistics must come from real database records.
+- Attachments must be uploaded to real storage.
+- Complaint status changes must persist.
+- Status history must be recorded.
+- Assignments must be stored in the database.
+- Messaging must save and retrieve messages.
+- Notifications must be persisted.
+- Feedback must be saved.
+- Role permissions must be enforced by the backend.
+- Reports must use actual records.
+- Search and filters must work.
+- Logout must terminate the authenticated session.
+
+Do not simulate these operations with local arrays, hardcoded objects,
+temporary JavaScript variables, or LocalStorage.
+
+LocalStorage may be used for harmless preferences, but never as the
+primary database or authentication system.
+
+If a required backend service is unavailable, explain the blocker,
+implement the parts that can be completed, and document the exact
+configuration needed.
+
+Never pretend that an unavailable service is connected.
+
+========================================================
+3. TECHNOLOGY STACK
+========================================================
+
+Use the following stack where supported by the Google AI Studio
+development environment.
+
+Frontend:
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Reusable components.
+- Lucide icons.
+- Recharts for analytics.
+- Responsive layouts.
+
+Backend and database:
+- Supabase.
+- PostgreSQL.
+- Supabase Authentication.
+- Supabase Storage.
+- Row Level Security.
+- Secure server-side functions where appropriate.
+
+If the available AI Studio environment requires a different supported
+backend architecture, explain the limitation and use the simplest
+secure alternative that supports real persistence and authentication.
+
+Do not introduce unnecessary technologies.
+
+Do not create a fake backend.
+
+Do not assume that Google AI Studio automatically provides a
+production database, authentication, or hosting for every project.
+
+Inspect the available environment and configure the necessary
+services correctly.
+
+Never expose database service-role keys, API secrets, or private
+credentials in browser code.
+
+========================================================
+4. FEATURES THAT MUST NOT BE IMPLEMENTED
+========================================================
+
+Do not implement any AI features inside the complaint system.
+
+Specifically, do not implement:
+- AI chatbots.
+- AI complaint classification.
+- AI complaint routing.
+- AI duplicate detection.
+- AI prioritization.
+- AI-generated responses.
+- Machine learning.
+
+Automatic complaint routing is also prohibited.
+
+Department and officer assignment must be performed manually by
+authorized college authorities.
+
+Normal search, filters, database queries, charts, and statistical
+analysis are allowed.
+
+========================================================
+5. DESIGN AND BRANDING
+========================================================
+
+Create a premium, modern, professional college management interface.
+
+Brand:
+SMART COLLEGE
+
+Tagline:
+"Your Voice. Our Responsibility."
+
+Design characteristics:
+- Blue and white primary colors.
+- Subtle green accents.
+- Professional typography.
+- Clean dashboard cards.
+- Consistent spacing.
+- Modern icons.
+- Subtle animations.
+- Accessible color contrast.
+- Responsive mobile layouts.
+- Clear visual hierarchy.
+- Professional status indicators.
+
+Avoid:
+- Excessive gradients.
+- Overly decorative animations.
+- Cluttered layouts.
+- Unnecessary glassmorphism.
+- Fake statistics.
+- Buttons without functionality.
+- Inconsistent design components.
+
+Create a reusable design system for:
+- Buttons.
+- Inputs.
+- Select fields.
+- Dialogs.
+- Cards.
+- Tables.
+- Alerts.
+- Notifications.
+- Status badges.
+- Priority badges.
+- Loading indicators.
+- Empty states.
+- Error states.
+
+========================================================
+6. USER ROLES
+========================================================
+
+Implement five roles:
+
+1. STUDENT
+2. DEPARTMENT_OFFICER
+3. DEPARTMENT_HEAD
+4. NODAL_OFFICER
+5. SUPER_ADMIN
+
+STUDENT:
+- Register and log in.
+- Manage profile.
+- Submit complaints.
+- Upload evidence.
+- Choose anonymous submission.
+- View personal complaints.
+- Track complaint status.
+- Search complaint history.
+- Communicate with authorized authorities.
+- Receive notifications.
+- Verify resolution.
+- Reopen eligible complaints.
+- Submit feedback.
+- View announcements.
+
+DEPARTMENT_OFFICER:
+- View authorized complaints.
+- Review complaint details.
+- Update permitted statuses.
+- Set priority where authorized.
+- Add resolution notes.
+- Upload resolution evidence.
+- Communicate with students.
+- Monitor deadlines.
+
+DEPARTMENT_HEAD:
+- View department complaints.
+- Manually assign officers.
+- Review overdue complaints.
+- Monitor departmental performance.
+- Handle permitted escalations.
+
+NODAL_OFFICER:
+- Review authorized cross-department complaints.
+- Handle escalations.
+- Monitor SLA compliance.
+- Review authorized reports.
+
+SUPER_ADMIN:
+- Manage users and roles.
+- Manage departments.
+- Configure SLA rules.
+- Publish announcements.
+- Manage known issues.
+- View system-wide analytics.
+- Access authorized audit logs.
+- Configure system settings.
+
+IMPORTANT SECURITY RULE:
+
+Enforce permissions on the server and in the database.
+
+Hiding a button in the frontend is NOT sufficient authorization.
+
+Public registration must never allow users to assign themselves
+privileged roles.
+
+========================================================
+7. DATABASE DESIGN
+========================================================
+
+Use a real persistent relational database.
+
+Create appropriate tables for:
+
+- profiles
+- roles
+- departments
+- complaints
+- complaint_status_history
+- complaint_assignments
+- complaint_attachments
+- complaint_messages
+- notifications
+- announcements
+- known_issues
+- feedback
+- audit_logs
+- sla_rules
+- escalations
+- related_complaints
+
+Requirements:
+- UUID primary keys.
+- Foreign keys.
+- Unique constraints.
+- Check constraints.
+- Timestamps.
+- Appropriate indexes.
+- Referential integrity.
+- Secure access policies.
+- Database migrations.
+
+Use PostgreSQL as the source of truth.
+
+Never store passwords directly in the database.
+
+Never expose sensitive complaint data publicly.
+
+Create documentation explaining the schema and relationships.
+
+========================================================
+8. AUTHENTICATION
+========================================================
+
+Implement real authentication.
+
+Required features:
+- Registration.
+- Login.
+- Logout.
+- Session persistence.
+- Password reset.
+- Protected routes.
+- Role-based navigation.
+- Profile management.
+- Session expiration handling.
+- Proper authentication error messages.
+
+Use Supabase Authentication if available.
+
+Never implement fake login by checking a hardcoded password.
+
+Never store passwords in LocalStorage.
+
+Never hardcode administrator credentials.
+
+Create a secure process for creating the first Super Admin.
+
+========================================================
+9. ROW LEVEL SECURITY AND PRIVACY
+========================================================
+
+Configure appropriate database access policies.
+
+Students must only access their own authorized complaint information.
+
+Department officers must only access information permitted by their
+role and department.
+
+Department heads and nodal officers must follow their authorized scope.
+
+Super Admin permissions must also be enforced securely.
+
+Prevent users from accessing another user's complaint by modifying
+URLs, database queries, request parameters, or frontend state.
+
+Protect:
+- Complaints.
+- Profiles.
+- Messages.
+- Attachments.
+- Notifications.
+- Feedback.
+- Audit logs.
+
+Use private storage for sensitive complaint evidence.
+
+Test authorization failures.
+
+Never disable security policies just to make the application work.
+
+========================================================
+10. PUBLIC LANDING PAGE
+========================================================
+
+Create a professional landing page containing:
+
+- Navigation bar.
+- Logo.
+- Home.
+- How It Works.
+- Features.
+- Announcements.
+- Login.
+- Register.
+
+Hero heading:
+"Your Voice. Our Responsibility."
+
+Supporting text:
+"Report campus issues, track progress, and stay connected with the
+people responsible for resolving them."
+
+Buttons:
+- Report a Complaint.
+- Track Complaint.
+
+Feature sections:
+- Easy complaint reporting.
+- Transparent tracking.
+- Secure accounts.
+- Authority management.
+- Notifications.
+- Resolution verification.
+- Accountability.
+- Analytics.
+
+Display the workflow:
+
+REPORT → REVIEW → ASSIGN → RESOLVE → VERIFY
+
+Every button must navigate to a real page or execute a real action.
+
+Do not display fabricated statistics or testimonials as real facts.
+
+========================================================
+11. STUDENT DASHBOARD
+========================================================
+
+Display:
+- Student profile.
+- Total complaints.
+- Pending complaints.
+- In Progress complaints.
+- Resolved complaints.
+- Rejected complaints.
+- Reopened complaints.
+
+Provide quick actions:
+- Submit Complaint.
+- My Complaints.
+- Notifications.
+- Announcements.
+
+Display recent complaints with:
+- Complaint reference.
+- Title.
+- Category.
+- Status.
+- Priority.
+- Date.
+- View Details.
+
+All statistics must be calculated from actual authorized database data.
+
+Implement loading, error, and empty states.
+
+========================================================
+12. COMPLAINT SUBMISSION
+========================================================
+
+Create a functional complaint submission form.
+
+Fields:
+- Category.
+- Title.
+- Description.
+- Location.
+- Optional attachments.
+- Anonymous submission option.
+
+Categories:
+- Hostel.
+- Classroom.
+- Library.
+- Laboratory.
+- Canteen.
+- Cleanliness.
+- Electricity.
+- Water.
+- Civil/Maintenance.
+- IT/Internet.
+- Other.
+
+Requirements:
+- Validate required fields.
+- Validate input lengths.
+- Reject invalid submissions.
+- Prevent accidental duplicate submissions where practical.
+- Persist complaints in the database.
+- Generate unique complaint references.
+- Record creation timestamps.
+- Create appropriate notifications.
+
+Initial status:
+Pending.
+
+Initial priority:
+Medium.
+
+Example reference:
+CMP-2026-000001
+
+Generate references using a reliable database-backed strategy.
+
+Do not rely only on the current timestamp.
+
+Display a success message only after the database operation succeeds.
+
+========================================================
+13. ANONYMOUS COMPLAINTS
+========================================================
+
+Implement anonymous complaint submission.
+
+The interface must explain what anonymity means.
+
+Requirements:
+- Do not expose the student's identity in ordinary authority views.
+- Preserve internal ownership securely where necessary.
+- Prevent identity leakage through database responses, attachments,
+  search results, and frontend state.
+- Apply suitable database and storage policies.
+- Test unauthorized access.
+
+Do not promise absolute anonymity unless the implementation actually
+supports it and its limitations are documented.
+
+========================================================
+14. ATTACHMENTS
+========================================================
+
+Use real file storage.
+
+Allow appropriate image and PDF attachments.
+
+Implement:
+- File type validation.
+- File size limits.
+- Secure upload.
+- Upload progress.
+- Upload error handling.
+- Attachment metadata.
+- Authorized downloads.
+- Private storage policies.
+
+Do not trust file extensions alone.
+
+Allow authorized authorities to upload resolution evidence.
+
+========================================================
+15. COMPLAINT TRACKING
+========================================================
+
+Statuses:
+- Pending.
+- In Progress.
+- Resolved.
+- Rejected.
+- Reopened.
+
+Normal workflow:
+
+Pending → In Progress → Resolved
+
+Alternative:
+
+Pending → Rejected
+
+Reopening:
+
+Resolved → Reopened → In Progress → Resolved
+
+Validate status transitions.
+
+Store every status change in complaint_status_history.
+
+Each entry must include:
+- Previous status.
+- New status.
+- Changed by.
+- Timestamp.
+- Reason where appropriate.
+
+Display a visual timeline based on real database records.
+
+Do not overwrite historical status records.
+
+========================================================
+16. PRIORITY AND MANUAL ASSIGNMENT
+========================================================
+
+Priorities:
+- Low.
+- Medium.
+- High.
+
+Authorized authorities can update priority.
+
+Authorized authorities can manually assign:
+- Department.
+- Officer.
+
+Store assignment history, including who made the assignment
+and when.
+
+Automatic complaint routing is prohibited.
+
+========================================================
+17. SLA AND ESCALATION
+========================================================
+
+Default configurable SLA examples:
+- High: 24 hours.
+- Medium: 48 hours.
+- Low: 72 hours.
+
+Track:
+- Due date.
+- Priority.
+- Current status.
+- Overdue state.
+- Resolution time.
+- SLA compliance.
+
+Display:
+- On Track.
+- Due Soon.
+- Overdue.
+- Resolved Within SLA.
+- Resolved After SLA.
+
+Use reliable server/database timestamps.
+
+If automatic deadline monitoring is required, implement a real
+scheduled backend process where supported.
+
+Do not simulate scheduled processing with a frontend timer.
+
+Escalation workflow:
+
+Department Officer → Department Head → Nodal Officer → Super Admin
+
+Record escalation history and reasons.
+
+========================================================
+18. AUTHORITY DASHBOARD
+========================================================
+
+Create a complete authority dashboard with:
+
+Statistics:
+- Total complaints.
+- Pending.
+- In Progress.
+- Resolved.
+- Rejected.
+- Reopened.
+- High priority.
+- Overdue.
+- SLA compliance.
+
+Features:
+- Search.
+- Filtering.
+- Sorting.
+- Pagination.
+- Complaint details.
+- Manual department assignment.
+- Manual officer assignment.
+- Priority management.
+- Status management.
+- Resolution notes.
+- Evidence upload.
+- SLA monitoring.
+- Escalation.
+- Messaging.
+- Notifications.
+
+Use real backend data.
+
+========================================================
+19. MESSAGING
+========================================================
+
+Implement persistent complaint-specific messaging.
+
+Requirements:
+- Store messages in the database.
+- Display conversation history.
+- Identify authorized senders.
+- Store timestamps.
+- Support read status where appropriate.
+- Prevent unauthorized access.
+- Notify the appropriate users when new messages arrive.
+
+Do not use temporary frontend arrays as the messaging database.
+
+========================================================
+20. NOTIFICATIONS
+========================================================
+
+Implement persistent notifications.
+
+Student notifications:
+- Complaint submitted.
+- Assignment updates.
+- Status changes.
+- Authority replies.
+- Resolution.
+- Rejection.
+- Reopening.
+- Verification requests.
+
+Authority notifications:
+- New complaints.
+- Assignments.
+- Approaching deadlines.
+- Overdue complaints.
+- Student replies.
+- Reopened complaints.
+- Escalations.
+
+Provide:
+- Unread count.
+- Mark as read.
+- Notification history.
+- Navigation to related records.
+
+========================================================
+21. RESOLUTION VERIFICATION AND FEEDBACK
+========================================================
+
+When a complaint is resolved, ask:
+
+"Has your issue been resolved?"
+
+Options:
+- Yes, Issue Resolved.
+- No, Reopen Complaint.
+
+If confirmed:
+- Record verification.
+- Allow feedback.
+
+If reopened:
+- Ask for a reason where appropriate.
+- Record the status transition.
+- Notify authorized authorities.
+
+Feedback:
+- Rating from 1 to 5.
+- Optional comment.
+- Timestamp.
+
+Prevent duplicate feedback where appropriate.
+
+========================================================
+22. ANNOUNCEMENTS AND KNOWN ISSUES
+========================================================
+
+Implement an announcements module.
+
+Authorized management users can publish and manage:
+- Maintenance notices.
+- Service interruptions.
+- Campus announcements.
+
+Fields:
+- Title.
+- Description.
+- Priority.
+- Publication date.
+- Expiry date.
+- Active status.
+
+Implement a known issues module with:
+- Title.
+- Category.
+- Location.
+- Description.
+- Status.
+- Estimated resolution.
+- Updated timestamp.
+
+Allow authorities to manually link related complaints.
+
+Do not implement AI-based duplicate detection.
+
+========================================================
+23. ANALYTICS AND REPORTS
+========================================================
+
+Create charts and reports using actual database records.
+
+Metrics:
+- Complaints over time.
+- Complaints by category.
+- Complaints by department.
+- Complaints by priority.
+- Complaints by status.
+- Resolution rate.
+- Average resolution time.
+- SLA compliance.
+- Overdue complaints.
+- Reopened complaints.
+- Recurring problem locations.
+
+Implement:
+- Date filters.
+- Department filters.
+- Category filters.
+- Status filters.
+- Priority filters.
+- CSV export.
+- Print-friendly reports.
+
+Respect permissions when generating reports.
+
+Never fabricate statistics.
+
+========================================================
+24. AUDIT LOGS
+========================================================
+
+Record important actions:
+- Complaint creation.
+- Status changes.
+- Priority changes.
+- Assignments.
+- Resolution.
+- Reopening.
+- Escalation.
+- Role changes.
+- Announcement changes.
+- Known issue changes.
+
+Store:
+- Actor.
+- Action.
+- Entity.
+- Entity ID.
+- Timestamp.
+- Appropriate metadata.
+
+Restrict access to authorized roles.
+
+Never record passwords or secrets.
+
+========================================================
+25. RESPONSIVE DESIGN
+========================================================
+
+Support:
+- 320px.
+- 375px.
+- 425px.
+- 768px.
+- 1024px.
+- Desktop.
+
+Verify:
+- Navigation.
+- Forms.
+- Tables.
+- Cards.
+- Charts.
+- Dialogs.
+- Buttons.
+- Complaint details.
+
+Prevent unintended horizontal overflow.
+
+Implement accessible labels, keyboard navigation, visible focus states,
+semantic HTML, and readable error messages.
+
+========================================================
+26. ERROR HANDLING
+========================================================
+
+Every important operation must handle:
+- Loading.
+- Success.
+- Validation failure.
+- Authentication failure.
+- Authorization failure.
+- Network failure.
+- Database failure.
+- Storage failure.
+- Empty results.
+- Unexpected errors.
+
+Never show a success message if the operation failed.
+
+Never silently swallow errors.
+
+Fix the underlying cause instead of hiding errors.
+
+========================================================
+27. MANDATORY ERROR FIXING
+========================================================
+
+THIS IS A NON-NEGOTIABLE REQUIREMENT.
+
+After implementing each major feature, test it and fix its errors.
+
+At the end of development, conduct a complete application-wide audit.
+
+Inspect:
+- Syntax errors.
+- TypeScript errors.
+- Missing imports.
+- Broken exports.
+- Invalid component properties.
+- Broken routes.
+- Undefined variables.
+- Null/undefined errors.
+- Incorrect asynchronous operations.
+- Unhandled promises.
+- Broken database queries.
+- Authentication failures.
+- RLS policy problems.
+- Storage access failures.
+- Form validation problems.
+- Broken buttons.
+- Failed API requests.
+- Console errors.
+- Build failures.
+- Responsive layout problems.
+- Security issues.
+- Regression bugs.
+
+For every reproducible issue:
+1. Identify the root cause.
+2. Fix the actual cause.
+3. Run the relevant test again.
+4. Confirm whether the problem is resolved.
+5. Check for regressions.
+
+Do not merely suppress error messages.
+
+Do not remove a feature just because it is difficult to fix.
+
+Do not claim an error has been fixed without retesting it.
+
+If an error cannot be fixed because credentials, permissions, or
+infrastructure are missing, document the exact blocker.
+
+========================================================
+28. TESTING REQUIREMENTS
+========================================================
+
+Create a test report containing:
+- Test name.
+- Expected result.
+- Actual result.
+- Pass/fail status.
+- Notes.
+
+Test registration, login, logout, sessions, password reset, and roles.
+
+Test:
+- Complaint submission.
+- Complaint reference generation.
+- Database persistence.
+- Anonymous complaints.
+- File uploads.
+- Status tracking.
+- Status history.
+- Assignment.
+- Priority.
+- SLA.
+- Escalation.
+- Messaging.
+- Notifications.
+- Resolution verification.
+- Reopening.
+- Feedback.
+- Announcements.
+- Known issues.
+- Search.
+- Filters.
+- Analytics.
+- CSV export.
+- Audit logs.
+
+Security tests:
+- Student cannot access another student's complaint.
+- Student cannot change administrative roles.
+- Student cannot directly perform unauthorized status changes.
+- Unauthorized users cannot read private messages.
+- Unauthorized users cannot access private attachments.
+- Unauthorized users cannot read audit logs.
+- RLS policies are enforced.
+
+UI tests:
+- All important buttons work.
+- All forms validate.
+- Navigation works.
+- Empty states work.
+- Loading states work.
+- Error states work.
+- Mobile layout works.
+- Keyboard navigation works.
+
+Do not mark a test as passed unless it was actually executed.
+
+========================================================
+29. REQUIRED END-TO-END TEST
+========================================================
+
+Test the following workflow using real database records:
+
+1. Register Student A.
+2. Log in as Student A.
+3. Submit a complaint.
+4. Upload an attachment.
+5. Verify the complaint is saved.
+6. Record the complaint reference.
+7. Log in as an authorized authority.
+8. Find the complaint.
+9. Assign the department manually.
+10. Assign an officer manually.
+11. Set priority.
+12. Change status to In Progress.
+13. Send a message.
+14. Add resolution notes.
+15. Resolve the complaint.
+16. Log back in as Student A.
+17. Confirm status persistence.
+18. Read the authority's message.
+19. Verify the resolution or reopen the complaint.
+20. Submit feedback after successful resolution.
+21. Verify database records and status history.
+22. Register or use Student B.
+23. Attempt to access Student A's complaint.
+24. Confirm access is denied.
+
+Do not replace this workflow with a mocked demonstration.
+
+If the environment prevents a test from running, record it as BLOCKED,
+not PASS.
+
+========================================================
+30. DOCUMENTATION
+========================================================
+
+Create:
+- README.md
+- PROJECT_AUDIT.md
+- PROJECT_TEST_REPORT.md
+- docs/ARCHITECTURE.md
+- docs/DATABASE.md
+- docs/AUTHENTICATION.md
+- docs/SECURITY.md
+- docs/TESTING.md
+- docs/DEPLOYMENT.md
+
+Document:
+- Technology stack.
+- Project structure.
+- Database schema.
+- Authentication.
+- Authorization.
+- RLS policies.
+- Storage configuration.
+- Complaint workflow.
+- Messaging.
+- Notifications.
+- SLA and escalation.
+- Analytics.
+- Environment variables.
+- Local development.
+- Testing.
+- Deployment.
+- Known limitations.
+
+Never include real credentials in documentation.
+
+========================================================
+31. PRODUCTION DEPLOYMENT
+========================================================
+
+Prepare the application for production deployment.
+
+Configure:
+- Production database.
+- Authentication.
+- Storage.
+- Environment variables.
+- HTTPS.
+- Production routing.
+- Error handling.
+- Security policies.
+
+Before claiming deployment is complete, verify the actual public URL.
+
+Test:
+- Landing page.
+- Registration.
+- Login.
+- Student dashboard.
+- Complaint submission.
+- File upload.
+- Complaint tracking.
+- Authority dashboard.
+- Assignment.
+- Status changes.
+- Messaging.
+- Notifications.
+- Resolution verification.
+- Feedback.
+- Unauthorized access denial.
+- Data persistence after refresh.
+
+Do not claim a public URL exists unless it actually exists.
+
+If credentials or manual configuration are required, explain the
+steps clearly.
+
+========================================================
+32. FINAL APPLICATION-WIDE AUDIT
+========================================================
+
+Before finishing, inspect the entire project.
+
+Run every available:
+- Build command.
+- Linter.
+- Type checker.
+- Unit test.
+- Integration test.
+- End-to-end test.
+- Security test.
+- Relevant database check.
+
+Use the commands supported by the actual project.
+
+Fix reproducible errors.
+
+Rerun the affected tests after fixing errors.
+
+Then rerun the complete relevant test suite.
+
+Inspect:
+- Frontend.
+- Backend.
+- Database.
+- Authentication.
+- Storage.
+- Permissions.
+- All important workflows.
+- Browser console.
+- Network requests.
+- Responsive layouts.
+- Production configuration.
+
+Create or update PROJECT_TEST_REPORT.md.
+
+Clearly label every feature:
+- IMPLEMENTED AND TESTED.
+- IMPLEMENTED BUT NOT FULLY TESTED.
+- NOT IMPLEMENTED.
+- BLOCKED BY CONFIGURATION.
+
+Never claim that the project has zero errors without sufficient
+evidence.
+
+========================================================
+33. FINAL ACCEPTANCE CRITERIA
+========================================================
+
+The application is not complete until:
+
+[ ] Frontend works.
+[ ] Backend operations work.
+[ ] Authentication works.
+[ ] Database persists data.
+[ ] RLS policies are configured.
+[ ] Roles are enforced securely.
+[ ] Complaints can be submitted.
+[ ] Complaint references are unique.
+[ ] Attachments work.
+[ ] Status tracking works.
+[ ] Status history persists.
+[ ] Manual assignment works.
+[ ] Priority management works.
+[ ] SLA tracking works.
+[ ] Escalation works.
+[ ] Messaging works.
+[ ] Notifications work.
+[ ] Resolution verification works.
+[ ] Reopening works.
+[ ] Feedback works.
+[ ] Announcements work.
+[ ] Known issues work.
+[ ] Search and filters work.
+[ ] Analytics use real data.
+[ ] Reports and CSV export work.
+[ ] Audit logs work.
+[ ] Responsive design works.
+[ ] Security tests are documented.
+[ ] Build succeeds.
+[ ] Important errors have been fixed.
+[ ] Regression tests have been rerun.
+[ ] Production deployment has been verified if access is available.
+[ ] Remaining blockers are documented.
+
+========================================================
+34. FINAL INSTRUCTIONS
+========================================================
+
+DO NOT STOP AFTER CREATING THE UI.
+
+DO NOT STOP AFTER CONNECTING THE DATABASE.
+
+DO NOT STOP AFTER MAKING LOGIN WORK.
+
+DO NOT STOP AFTER IMPLEMENTING ONLY A FEW FEATURES.
+
+Continue through the complete implementation, testing, debugging,
+error fixing, security review, and deployment preparation.
+
+Prioritize actual functionality and data security over decorative UI.
+
+Preserve existing working code when extending an existing project.
+
+If the project is new, create a clean and maintainable architecture.
+
+If external services require credentials or setup, ask for the
+necessary configuration at the appropriate stage.
+
+Do not expose secrets.
+
+Do not claim success for work that has not been performed.
+
+When the environment supports direct code editing and terminal access,
+make the changes directly rather than merely explaining what I should do.
+
+After every major stage:
+1. Summarize what was implemented.
+2. Run relevant tests.
+3. Fix errors.
+4. Retest.
+5. Update the test report.
+
+At the end:
+1. Run the final audit.
+2. Fix all reproducible errors that can reasonably be fixed.
+3. Rerun relevant tests.
+4. Verify the main end-to-end workflow.
+5. Update the documentation.
+6. Report the real completion status.
+7. Explain any remaining manual configuration.
+
+BEGIN NOW.
+
+Start by inspecting the available development environment and project
+structure. Then implement the application incrementally and continue
+until all achievable requirements have been implemented and verified.

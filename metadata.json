@@ -1,0 +1,6 @@
+{
+  "name": "Smart College Complaint System",
+  "description": "Production-ready, role-based college complaint management system with persistent tracking, manual assignment, SLA monitoring, messaging, and analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
