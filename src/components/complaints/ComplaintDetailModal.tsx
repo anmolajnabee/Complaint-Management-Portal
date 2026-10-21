@@ -539,44 +539,44 @@ export const ComplaintDetailModal: React.FC<ComplaintDetailModalProps> = ({
             )}
 
             {/* Navigation Tabs */}
-            <div className="flex border-b border-slate-200 text-xs">
+            <div className="flex border-b border-slate-200 text-xs overflow-x-auto scrollbar-none no-scrollbar">
               <button
                 onClick={() => setActiveTab('overview')}
-                className={`flex items-center gap-1.5 px-4 py-2 font-semibold border-b-2 transition-colors ${
+                className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 font-semibold border-b-2 transition-colors shrink-0 whitespace-nowrap min-h-[40px] ${
                   activeTab === 'overview' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                <FileText size={14} />
+                <FileText size={14} className="shrink-0" />
                 <span>Description & Resolution</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('messages')}
-                className={`flex items-center gap-1.5 px-4 py-2 font-semibold border-b-2 transition-colors ${
+                className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 font-semibold border-b-2 transition-colors shrink-0 whitespace-nowrap min-h-[40px] ${
                   activeTab === 'messages' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                <MessageSquare size={14} />
+                <MessageSquare size={14} className="shrink-0" />
                 <span>Messages ({messages.length})</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('history')}
-                className={`flex items-center gap-1.5 px-4 py-2 font-semibold border-b-2 transition-colors ${
+                className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 font-semibold border-b-2 transition-colors shrink-0 whitespace-nowrap min-h-[40px] ${
                   activeTab === 'history' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                <History size={14} />
+                <History size={14} className="shrink-0" />
                 <span>Audit Timeline ({history.length})</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('attachments')}
-                className={`flex items-center gap-1.5 px-4 py-2 font-semibold border-b-2 transition-colors ${
+                className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 font-semibold border-b-2 transition-colors shrink-0 whitespace-nowrap min-h-[40px] ${
                   activeTab === 'attachments' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                <Paperclip size={14} />
+                <Paperclip size={14} className="shrink-0" />
                 <span>Files ({attachments.length})</span>
               </button>
             </div>

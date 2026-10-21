@@ -152,8 +152,8 @@ export const AdminPage: React.FC = () => {
           {/* TAB 1: USER ROLES */}
           {activeTab === 'users' && (
             <div className="space-y-4">
-              <div className="bg-white p-3 rounded-xl border border-slate-200 flex items-center justify-between">
-                <div className="relative flex-1 max-w-sm">
+              <div className="bg-white p-3 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                <div className="relative flex-1 min-w-[200px] max-w-sm">
                   <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
                   <input
                     type="text"
@@ -165,9 +165,9 @@ export const AdminPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
+              <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden min-w-0">
+                <div className="overflow-x-auto scrollbar-thin">
+                  <table className="w-full text-left text-xs min-w-[640px]">
                     <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
                       <tr>
                         <th className="py-3 px-4">User</th>
@@ -217,8 +217,8 @@ export const AdminPage: React.FC = () => {
           {/* TAB 2: AUDIT LOGS */}
           {activeTab === 'audit' && (
             <div className="space-y-4">
-              <div className="bg-white p-3 rounded-xl border border-slate-200 flex items-center justify-between">
-                <div className="relative flex-1 max-w-sm">
+              <div className="bg-white p-3 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                <div className="relative flex-1 min-w-[200px] max-w-sm">
                   <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
                   <input
                     type="text"
@@ -231,9 +231,9 @@ export const AdminPage: React.FC = () => {
                 <div className="text-xs text-slate-400">Showing last 100 immutable events</div>
               </div>
 
-              <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
+              <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden min-w-0">
+                <div className="overflow-x-auto scrollbar-thin">
+                  <table className="w-full text-left text-xs min-w-[640px]">
                     <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
                       <tr>
                         <th className="py-3 px-4">Timestamp</th>

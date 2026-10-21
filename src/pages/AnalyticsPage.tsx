@@ -140,17 +140,17 @@ export const AnalyticsPage: React.FC = () => {
           </div>
 
           {/* Charts Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {/* By Category */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs min-w-0">
               <h3 className="text-sm font-bold text-slate-900 mb-1">Complaints by Category</h3>
               <p className="text-xs text-slate-500 mb-4">Volume distribution across infrastructure departments</p>
-              <div className="h-64">
+              <div className="h-64 min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={data.byCategory}>
+                  <BarChart data={data.byCategory} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                    <XAxis dataKey="category" tick={{ fontSize: 10 }} interval={0} angle={-20} textAnchor="end" height={40} />
-                    <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
+                    <XAxis dataKey="category" tick={{ fontSize: 9 }} interval={0} angle={-25} textAnchor="end" height={45} />
+                    <YAxis tick={{ fontSize: 10 }} allowDecimals={false} />
                     <Tooltip contentStyle={{ fontSize: '12px', borderRadius: '8px' }} />
                     <Bar dataKey="count" fill="#2563eb" radius={[4, 4, 0, 0]} />
                   </BarChart>
@@ -159,10 +159,10 @@ export const AnalyticsPage: React.FC = () => {
             </div>
 
             {/* By Status */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs min-w-0">
               <h3 className="text-sm font-bold text-slate-900 mb-1">Status Workflow Distribution</h3>
               <p className="text-xs text-slate-500 mb-4">Current stage breakdown of complaints in the system</p>
-              <div className="h-64">
+              <div className="h-64 min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -171,10 +171,10 @@ export const AnalyticsPage: React.FC = () => {
                       nameKey="status"
                       cx="50%"
                       cy="50%"
-                      outerRadius={80}
-                      innerRadius={40}
-                      paddingAngle={4}
-                      label={({ name, percent }: { name?: string; percent?: number }) => `${name || ''} (${((percent ?? 0) * 100).toFixed(0)}%)`}
+                      outerRadius={70}
+                      innerRadius={36}
+                      paddingAngle={3}
+                      label={({ name, percent }: { name?: string; percent?: number }) => `${name || ''}: ${((percent ?? 0) * 100).toFixed(0)}%`}
                     >
                       {data.byStatus.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -188,9 +188,9 @@ export const AnalyticsPage: React.FC = () => {
           </div>
 
           {/* Department Breakdown & Problem Locations */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {/* Department Breakdown */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs min-w-0">
               <h3 className="text-sm font-bold text-slate-900 mb-3">Department Workload</h3>
               <div className="space-y-3">
                 {data.byDepartment.map((dept, idx) => (

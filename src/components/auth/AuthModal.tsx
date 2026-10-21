@@ -121,7 +121,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1" htmlFor="roll-no-input">
                   Roll / Student ID
@@ -207,7 +207,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-semibold text-sm rounded-lg shadow-xs transition-colors flex items-center justify-center gap-2 mt-2"
+          className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-semibold text-sm rounded-lg shadow-xs transition-colors flex items-center justify-center gap-2 mt-2 min-h-[44px]"
         >
           {loading ? (
             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -222,18 +222,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
       {/* Demo Credentials Quick Fill Box */}
       {mode === 'login' && (
-        <div className="mt-6 pt-4 border-t border-slate-200">
+        <div className="mt-5 pt-4 border-t border-slate-200">
           <div className="text-xs font-semibold text-slate-600 mb-2">Quick Demo Account Fill:</div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             {DEMO_ACCOUNTS.map((d) => (
               <button
                 key={d.email}
                 type="button"
                 onClick={() => fillDemo(d.email, d.pass)}
-                className="text-left p-2 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
+                className="text-left p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors min-h-[44px]"
               >
-                <div className="font-medium text-slate-900 truncate">{d.badge}</div>
-                <div className="text-[10px] text-slate-500 truncate">{d.email}</div>
+                <div className="font-semibold text-slate-900 truncate text-xs">{d.badge}</div>
+                <div className="text-[11px] text-slate-500 font-mono truncate">{d.email}</div>
               </button>
             ))}
           </div>

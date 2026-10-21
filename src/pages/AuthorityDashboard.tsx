@@ -22,6 +22,7 @@ import {
   Eye,
   RefreshCw,
   Building,
+  MapPin,
 } from 'lucide-react';
 
 interface AuthorityDashboardProps {
@@ -273,91 +274,169 @@ export const AuthorityDashboard: React.FC<AuthorityDashboardProps> = ({
             />
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
-                <tr>
-                  <th className="py-3 px-4">Ref #</th>
-                  <th className="py-3 px-4">Subject & Location</th>
-                  <th className="py-3 px-4">Category</th>
-                  <th className="py-3 px-4">Student</th>
-                  <th className="py-3 px-4">Priority</th>
-                  <th className="py-3 px-4">Status</th>
-                  <th className="py-3 px-4">Officer</th>
-                  <th className="py-3 px-4">SLA State</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {complaints.map((c) => (
-                  <tr
-                    key={c.id}
-                    className="hover:bg-slate-50/80 transition-colors cursor-pointer"
-                    onClick={() => onSelectComplaint(c.id)}
-                  >
-                    <td className="py-3 px-4 font-mono font-bold text-blue-700 whitespace-nowrap">
+          <>
+            {/* Mobile Card List (< md: 768px) */}
+            <div className="block md:hidden divide-y divide-slate-100">
+              {complaints.map((c) => (
+                <div
+                  key={c.id}
+                  onClick={() => onSelectComplaint(c.id)}
+                  className="p-3.5 hover:bg-slate-50 transition-colors cursor-pointer space-y-2.5"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-1.5">
+                    <span className="font-mono font-bold text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                       {c.reference_no}
-                    </td>
-                    <td className="py-3 px-4 max-w-xs">
-                      <div className="font-semibold text-slate-900 truncate">{c.title}</div>
-                      <div className="text-[11px] text-slate-500 truncate">{c.location}</div>
-                    </td>
-                    <td className="py-3 px-4 whitespace-nowrap">{c.category}</td>
-                    <td className="py-3 px-4 whitespace-nowrap">
-                      {c.is_anonymous ? (
-                        <span className="text-slate-500 italic">Anonymous</span>
-                      ) : (
-                        <span className="font-medium">{c.student_name || 'Student'}</span>
-                      )}
-                    </td>
-                    <td className="py-3 px-4 whitespace-nowrap">
+                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
                       <PriorityBadge priority={c.priority} size="sm" />
-                    </td>
-                    <td className="py-3 px-4 whitespace-nowrap">
                       <StatusBadge status={c.status} size="sm" />
-                    </td>
-                    <td className="py-3 px-4 whitespace-nowrap">
-                      {c.assigned_officer_name ? (
-                        <span className="font-medium text-slate-800">{c.assigned_officer_name}</span>
-                      ) : (
-                        <span className="text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                          Unassigned
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-3 px-4 whitespace-nowrap">
                       {c.sla_status && <SlaBadge status={c.sla_status} size="sm" />}
-                    </td>
-                    <td className="py-3 px-4 text-right whitespace-nowrap">
-                      <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
-                        <button
-                          onClick={() => onSelectComplaint(c.id)}
-                          className="p-1 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded"
-                          title="View Full Details"
-                        >
-                          <Eye size={15} />
-                        </button>
-                        <button
-                          onClick={() => setAssignComplaintId(c.id)}
-                          className="p-1 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 rounded"
-                          title="Assign Officer"
-                        >
-                          <UserCheck size={15} />
-                        </button>
-                        <button
-                          onClick={() => setEscalateComplaint({ id: c.id, ref: c.reference_no })}
-                          className="p-1 text-slate-600 hover:text-amber-600 hover:bg-slate-100 rounded"
-                          title="Escalate Issue"
-                        >
-                          <ArrowUpRight size={15} />
-                        </button>
-                      </div>
-                    </td>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 leading-snug break-words">
+                      {c.title}
+                    </h4>
+                    <div className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                      <MapPin size={12} className="text-slate-400 shrink-0" />
+                      <span className="truncate">{c.location}</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-[11px] pt-1 border-t border-slate-100 text-slate-600">
+                    <div>
+                      <span className="text-slate-400 block text-[10px]">Student / Reporter</span>
+                      <span className="font-medium text-slate-800 truncate block">
+                        {c.is_anonymous ? 'Anonymous' : (c.student_name || 'Student')}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block text-[10px]">Assigned Officer</span>
+                      <span className="font-medium text-slate-800 truncate block">
+                        {c.assigned_officer_name || 'Unassigned'}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    className="flex items-center gap-2 pt-1"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      onClick={() => onSelectComplaint(c.id)}
+                      className="flex-1 py-2 px-2.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors flex items-center justify-center gap-1 min-h-[38px]"
+                    >
+                      <Eye size={14} />
+                      <span>Details</span>
+                    </button>
+                    <button
+                      onClick={() => setAssignComplaintId(c.id)}
+                      className="flex-1 py-2 px-2.5 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors flex items-center justify-center gap-1 min-h-[38px]"
+                    >
+                      <UserCheck size={14} />
+                      <span>Assign</span>
+                    </button>
+                    <button
+                      onClick={() => setEscalateComplaint({ id: c.id, ref: c.reference_no })}
+                      className="py-2 px-3 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors flex items-center justify-center gap-1 min-h-[38px]"
+                      title="Escalate Issue"
+                    >
+                      <ArrowUpRight size={14} />
+                      <span className="sr-only sm:not-sr-only">Escalate</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop & Tablet Table (>= md: 768px) */}
+            <div className="hidden md:block overflow-x-auto scrollbar-thin">
+              <table className="w-full text-left text-xs min-w-[760px]">
+                <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th className="py-3 px-4">Ref #</th>
+                    <th className="py-3 px-4">Subject & Location</th>
+                    <th className="py-3 px-4">Category</th>
+                    <th className="py-3 px-4">Student</th>
+                    <th className="py-3 px-4">Priority</th>
+                    <th className="py-3 px-4">Status</th>
+                    <th className="py-3 px-4">Officer</th>
+                    <th className="py-3 px-4">SLA State</th>
+                    <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {complaints.map((c) => (
+                    <tr
+                      key={c.id}
+                      className="hover:bg-slate-50/80 transition-colors cursor-pointer"
+                      onClick={() => onSelectComplaint(c.id)}
+                    >
+                      <td className="py-3 px-4 font-mono font-bold text-blue-700 whitespace-nowrap">
+                        {c.reference_no}
+                      </td>
+                      <td className="py-3 px-4 max-w-xs">
+                        <div className="font-semibold text-slate-900 truncate">{c.title}</div>
+                        <div className="text-[11px] text-slate-500 truncate">{c.location}</div>
+                      </td>
+                      <td className="py-3 px-4 whitespace-nowrap">{c.category}</td>
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        {c.is_anonymous ? (
+                          <span className="text-slate-500 italic">Anonymous</span>
+                        ) : (
+                          <span className="font-medium">{c.student_name || 'Student'}</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        <PriorityBadge priority={c.priority} size="sm" />
+                      </td>
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        <StatusBadge status={c.status} size="sm" />
+                      </td>
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        {c.assigned_officer_name ? (
+                          <span className="font-medium text-slate-800">{c.assigned_officer_name}</span>
+                        ) : (
+                          <span className="text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                            Unassigned
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        {c.sla_status && <SlaBadge status={c.sla_status} size="sm" />}
+                      </td>
+                      <td className="py-3 px-4 text-right whitespace-nowrap">
+                        <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
+                          <button
+                            onClick={() => onSelectComplaint(c.id)}
+                            className="p-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg min-w-[32px] min-h-[32px] flex items-center justify-center transition-colors"
+                            title="View Full Details"
+                          >
+                            <Eye size={15} />
+                          </button>
+                          <button
+                            onClick={() => setAssignComplaintId(c.id)}
+                            className="p-1.5 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 rounded-lg min-w-[32px] min-h-[32px] flex items-center justify-center transition-colors"
+                            title="Assign Officer"
+                          >
+                            <UserCheck size={15} />
+                          </button>
+                          <button
+                            onClick={() => setEscalateComplaint({ id: c.id, ref: c.reference_no })}
+                            className="p-1.5 text-slate-600 hover:text-amber-600 hover:bg-slate-100 rounded-lg min-w-[32px] min-h-[32px] flex items-center justify-center transition-colors"
+                            title="Escalate Issue"
+                          >
+                            <ArrowUpRight size={15} />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
 

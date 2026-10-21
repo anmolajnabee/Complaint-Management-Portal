@@ -48,9 +48,9 @@ export const PublicTrackerModal: React.FC<PublicTrackerModalProps> = ({
         <label className="block text-xs font-semibold text-slate-700 mb-1" htmlFor="track-ref-input">
           Complaint Reference Number
         </label>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <div className="relative flex-1">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3 sm:top-2.5" />
             <input
               id="track-ref-input"
               type="text"
@@ -58,15 +58,15 @@ export const PublicTrackerModal: React.FC<PublicTrackerModalProps> = ({
               placeholder="e.g. CMP-2026-000001"
               value={refInput}
               onChange={(e) => setRefInput(e.target.value.toUpperCase())}
-              className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg font-mono focus:ring-2 focus:ring-blue-500 focus:outline-none uppercase"
+              className="w-full pl-9 pr-3 py-2.5 sm:py-2 text-sm border border-slate-300 rounded-lg font-mono focus:ring-2 focus:ring-blue-500 focus:outline-none uppercase min-h-[42px]"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-semibold text-sm rounded-lg shadow-xs transition-colors flex items-center gap-1.5"
+            className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-semibold text-sm rounded-lg shadow-xs transition-colors flex items-center justify-center gap-1.5 min-h-[42px]"
           >
-            {loading ? 'Searching...' : 'Track'}
+            {loading ? 'Searching...' : 'Track Status'}
           </button>
         </div>
       </form>
@@ -74,13 +74,13 @@ export const PublicTrackerModal: React.FC<PublicTrackerModalProps> = ({
       {error && <Alert type="error">{error}</Alert>}
 
       {result && (
-        <div className="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
+        <div className="bg-slate-50 rounded-xl p-3.5 sm:p-5 border border-slate-200 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200">
-            <div>
+            <div className="min-w-0">
               <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                 {result.reference_no}
               </span>
-              <h3 className="text-base font-bold text-slate-900 mt-1">{result.title}</h3>
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 mt-1 break-words">{result.title}</h3>
             </div>
             <div className="flex items-center gap-2">
               <StatusBadge status={result.status} size="lg" />

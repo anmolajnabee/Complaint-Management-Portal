@@ -89,7 +89,7 @@ const MainAppContent: React.FC = () => {
       )}
 
       {/* Main Content Viewport */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 min-w-0">
         {currentTab === 'home' || currentTab === 'how-it-works' ? (
           <LandingPage
             onOpenAuth={(mode) => setAuthModal({ isOpen: true, mode })}
@@ -170,26 +170,26 @@ const MainAppContent: React.FC = () => {
       />
 
       {/* Footer */}
-      <footer className="mt-16 bg-white border-t border-slate-200 text-xs text-slate-500 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-0.5 shadow-2xs shrink-0">
+      <footer className="mt-16 bg-white border-t border-slate-200 text-xs text-slate-500 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-0.5 shadow-2xs shrink-0">
               <img src={logoUrl} alt={`${platformName} Logo`} className="w-full h-full object-contain" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-slate-900">{platformName} • {collegeName} COMPLAINT SYSTEM</span>
+            <div className="min-w-0">
+              <div className="font-bold text-slate-900 truncate text-xs sm:text-sm">
+                {platformName} • {collegeName} COMPLAINT SYSTEM
               </div>
-              <span className="block text-[11px] text-slate-400">{tagline}</span>
+              <span className="block text-[11px] text-slate-400 truncate">{tagline}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs text-slate-500">
             <span className="flex items-center gap-1 text-emerald-700 font-medium">
-              <Shield size={12} />
+              <Shield size={12} className="shrink-0" />
               <span>Full-Stack Relational SQLite WASM Persistent Engine</span>
             </span>
-            <span>•</span>
+            <span className="hidden sm:inline text-slate-300">•</span>
             <span>Strict Role-Based Access Control</span>
           </div>
         </div>
